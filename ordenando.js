@@ -29,6 +29,21 @@ const bubble_sort = (array) => {
     }
 }
 
+//Ordenar um vetor de inteiros. Função selection_sort.
+const selection_sort = (array) => {
+    for (let indice = 0; indice < array.length - 1; indice ++) {
+        let min_indice = indice;
+        for (let indiceItera = indice + 1; indiceItera < array.length; indiceItera ++) {
+            if (array [indiceItera] < array [min_indice]) {
+                min_indice = indiceItera
+            }
+        }
+        if (min_indice !== indice) {
+            swap (array, indice, min_indice); //Usa função swap.
+        }
+    }
+}
+
 //Abaixo linhas de teste para a função.
 //let vetor = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 //console.log ("Vetor original: ", vetor);
@@ -37,5 +52,5 @@ const bubble_sort = (array) => {
 
 let vetor = [5, 3, 6, 2, 1, 4];
 console.log ("vetor original: ", vetor);
-bubble_sort (vetor);
+selection_sort (vetor);
 console.log ("Vetor após ordenação: ", vetor);
