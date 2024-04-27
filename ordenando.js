@@ -45,7 +45,7 @@ const selection_sort = (array) => {
 }
 
 //Ordenar um vetor de inteiros. Função quick_sort.
-const quick_sort = (array, pos_inicio, pos_final) => {
+const quick_sort = (array, pos_inicio = 0, pos_final = array.length - 1) => {
     if (pos_inicio < pos_final) {
         const pivot = array [Math.floor ((pos_inicio + pos_final) / 2)];
         const indicePivot = particionamento (array, pos_inicio, pos_final, pivot);
@@ -81,7 +81,7 @@ const particionamento = (array, pos_inicio, pos_final, pivot) => {
 //selection_sort (Vetor);
 //console.log ("Vetor após ordenação: ", vetor);
 
-let vetor = [9, 1, 20, 8, 2, 19, 7, 3, 18, 6, 4, 17, 5, 16, 10, 15, 11, 14, 12, 13];
-console.log ("Vetor original: ", vetor);
-quick_sort (vetor, 0, vetor.length - 1);
-console.log ("Vetor após ordenação: ", vetor);
+//let vetor = [9, 1, 20, 8, 2, 19, 7, 3, 18, 6, 4, 17, 5, 16, 10, 15, 11, 14, 12, 13];
+//console.log ("Vetor original: ", vetor);
+//quick_sort (vetor);
+//console.log ("Vetor após ordenação: ", vetor);
