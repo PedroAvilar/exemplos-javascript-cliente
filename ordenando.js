@@ -44,13 +44,44 @@ const selection_sort = (array) => {
     }
 }
 
+//Ordenar um vetor de inteiros. Função quick_sort.
+const quick_sort = (array, pos_inicio, pos_final) => {
+    if (pos_inicio < pos_final) {
+        const pivot = array [Math.floor ((pos_inicio + pos_final) / 2)];
+        const indicePivot = particionamento (array, pos_inicio, pos_final, pivot);
+        quick_sort (array, pos_inicio, indicePivot - 1);
+        quick_sort (array, indicePivot, pos_final);
+    }
+}
+//Função particionamento para apoio da função quick_sort.
+const particionamento = (array, pos_inicio, pos_final, pivot) => {
+    while (pos_inicio <= pos_final) {
+        while (array [pos_inicio] < pivot) {
+            pos_inicio ++;
+        }
+        while (array [pos_final] > pivot) {
+            pos_final --;
+        }
+        if (pos_inicio <= pos_final) {
+            swap (array, pos_inicio, pos_final); //Usa função swap.
+            pos_inicio ++;
+            pos_final --;
+        }
+    } return pos_inicio;
+}
+
 //Abaixo linhas de teste para a função.
 //let vetor = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 //console.log ("Vetor original: ", vetor);
 //shuffle (vetor, 2);
 //console.log ("Vetor após a troca: ", vetor);
 
-let vetor = [5, 3, 6, 2, 1, 4];
-console.log ("vetor original: ", vetor);
-selection_sort (vetor);
+//let vetor = [5, 3, 6, 2, 1, 4];
+//console.log ("Vetor original: ", vetor);
+//selection_sort (Vetor);
+//console.log ("Vetor após ordenação: ", vetor);
+
+let vetor = [9, 1, 20, 8, 2, 19, 7, 3, 18, 6, 4, 17, 5, 16, 10, 15, 11, 14, 12, 13];
+console.log ("Vetor original: ", vetor);
+quick_sort (vetor, 0, vetor.length - 1);
 console.log ("Vetor após ordenação: ", vetor);
