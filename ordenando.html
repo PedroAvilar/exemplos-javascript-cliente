@@ -37,6 +37,14 @@
             const vetorOrdenado = vetor.map (valor => `<li>${valor}</li>`).reduce ((html, item) => html + item, '');
             listaValores.innerHTML = vetorOrdenado;
         }
+        //Função misturar para embaralhar os valores da lista, chamada pelo botão misturar.
+        function misturar () {
+            const listaValores = document.getElementById ('valores');
+            const vetor = Array.from (listaValores.children).map (item => eval (item.innerHTML));
+            shuffle (vetor, vetor.length + 1); //Função disponível em ordenando.js.
+            const vetorMisturado = vetor.map (valor => `<li>${valor}</li>`).reduce ((html, item) => html + item, '');
+            listaValores.innerHTML = vetorMisturado;
+        }   
     </script>
 </head>
 <body>
