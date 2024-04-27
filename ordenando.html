@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="ordenando.js"></script>
     <title>Ordenando valores</title>
+    <script>
+        //Função para adicionar novos valores na lista, chamada pelo botão adicionar.
+        function add () {
+            const inputValor = document.getElementById ('valor');
+            const listaValores = document.getElementById ('valores');
+            const node = document.createElement ('li');
+            const nodeTexto = document.createTextNode (inputValor.value);
+            node.appendChild (nodeTexto);
+            listaValores.appendChild (node);
+        }
+    </script>
 </head>
 <body>
     <input type="number" id="valor">
