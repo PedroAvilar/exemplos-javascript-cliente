@@ -6,7 +6,7 @@
     <script src="ordenando.js"></script>
     <title>Ordenando valores</title>
     <script>
-        //Função para adicionar novos valores na lista, chamada pelo botão adicionar.
+        //Função add para adicionar novos valores na lista, chamada pelo botão adicionar.
         function add () {
             const inputValor = document.getElementById ('valor');
             const listaValores = document.getElementById ('valores');
@@ -14,6 +14,28 @@
             const nodeTexto = document.createTextNode (inputValor.value);
             node.appendChild (nodeTexto);
             listaValores.appendChild (node);
+        }
+        //Função ordenar para ordenação da lista de valores, chamada pelo botão ordenar.
+        function ordenar () {
+            const listaValores = document.getElementById ('valores');
+            const selecao = document.getElementById ('funcoes');
+            const vetor = Array.from (listaValores.children).map (item => eval (item.innerHTML));
+            const algoritmo = selecao.options [selecao.selectedIndex].value;
+            switch (algoritmo) {
+                case 'bubble' :
+                    bubble_sort (vetor); //Função disponível em ordenando.js.
+                    break;
+                case 'selection' :
+                    selection_sort (vetor); //Função disponível em ordenando.js.
+                    break;
+                case 'quick' :
+                    quick_sort (vetor); //Função disponível em ordenando.js.
+                    break;
+                default :
+                    break ;
+            }
+            const vetorOrdenado = vetor.map (valor => `<li>${valor}</li>`).reduce ((html, item) => html + item, '');
+            listaValores.innerHTML = vetorOrdenado;
         }
     </script>
 </head>
