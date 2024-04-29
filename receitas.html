@@ -60,7 +60,7 @@
         function getCard (receita) {
             const listaIngredientes = getListaIngredientes (receita);
             return `
-                <div class = "card  mb-3" style = "width: 250px;">
+                <div class = "card  mb-3 mt-3" style = "width: 250px;">
                     <img src = "${receita.imagem}" class = "card-img-top" alt = "Foto da receita.">
                     <div class = "card-body">
                         <div class = "card-title">
@@ -82,9 +82,9 @@
         }
     </script>
 </head>
-<body class="container-fluid bg-warning" onload="preencheCatalogo()">
+<body class="container-fluid" onload="preencheCatalogo()">
     <h1>Catálogo de Receitas</h1>
-    <div class="d-flex flex-wrap justify-content-around" id="pnlCatalogo">
+    <div class="d-flex flex-wrap justify-content-around  bg-warning" id="pnlCatalogo">
 
     </div>
 </body>
