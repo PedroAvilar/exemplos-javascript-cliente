@@ -53,10 +53,12 @@
                 ]
             }
         ]
+        //Função para retornar a lista de ingredientes em HTML.
         function getListaIngredientes(receita) {
             let lista = '<ul>' + receita.ingredientes.map(item => `<li>${item}</li>`).reduce((html, item) => html + item, '') + '</ul>';
             return lista;
         }
+        //Função para retornar o conteúdo do card.
         function getCard (receita) {
             const listaIngredientes = getListaIngredientes (receita);
             return `
@@ -75,6 +77,7 @@
                 </div>
             `;
         }
+        //Função para exibição do conjunto de receitas na página.
         function preencheCatalogo () {
             const catalogo = document.getElementById ('pnlCatalogo');
             const conteudo = receita.map (receita => getCard (receita)).reduce ((html, card) => html + card, '');
@@ -84,6 +87,7 @@
 </head>
 <body class="container-fluid" onload="preencheCatalogo()">
     <h1>Catálogo de Receitas</h1>
+    <!--Bloco onde os cards de receitas aparecem.-->
     <div class="d-flex flex-wrap justify-content-around  bg-warning" id="pnlCatalogo">
 
     </div>
